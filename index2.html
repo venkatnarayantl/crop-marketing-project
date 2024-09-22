@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-User Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #bcda48;
+            background-image: url(https://img.freepik.com/free-photo/young-wheat-green-field_1268-29146.jpg);
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 100;
+            background-size: 100vw;
+        
+        }
+
+        .login-container {
+            background-color: #91f06c6c;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(16, 15, 15, 0.1);
+            width: 400px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 15px;
+            color: #0d0d0d;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 15px;
+            color: #011013;
+        }
+
+        .input-group select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #070c0c;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .input-group input{
+            width: 94%;
+            padding: 10px;
+            border: 2px solid #070c0c;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .login-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #020c04;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: 0.21s;
+        }
+
+        .login-btn:hover {
+            background-color: #218838;
+            opacity: 0.51;
+        }
+
+        .message {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 15px;
+            color: #28a745;
+        }
+        h1
+        { text-align: center;
+            margin-top: 15px;
+            font-size: 15px;
+            color: #070707;
+            }
+            .link_login{
+                text-decoration: none;
+                align-items: center;
+                padding-top: 1%;
+                background-color: aliceblue;
+                border-radius: 5px;
+                text-align: center;
+                display: inline-block;
+                width: 50%;
+                height: 30px;
+                margin-left: 95px;
+                margin-top: 15px;
+                background-color: #fcfcfe;
+                align-content: center;
+                cursor: pointer;
+                transition: 0.21s;
+            }
+            .link_login:hover{
+                background-color: rgb(7, 114, 48);
+                color: white;
+                opacity: 0.91;
+                
+                
+            }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>LOGIN</h2>
+        <form id="loginForm">
+            <div class="input-group">
+                <label for="userType">User Type</label>
+                <select id="userType" name="userType" required>
+                    <option value="">Select User Type</option>
+                    <option value="farmer">Farmer</option>
+                    <option value="general">General Person</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="username">User name</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <a class="link_login" href="index.html">Login</a>
+            <h1>If you don't have account ?<a href="index3.html"> Register</a></h1>
+        </form>
+        <div class="message" id="welcomeMessage"></div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting
+
+            // Get the username and user type
+            const username = document.getElementById('user name').value;
+            const userType = document.getElementById('userType').value;
+
+            // Display a welcome message
+            const message = document.getElementById('welcome Message');
+            if (userType === 'farmer') {
+                message.textContent =` Hello Farmer, ${username}`;
+            } else if (userType === 'general') {
+                message.textContent =` Hello General Person, ${username}`;
+            } else {
+                message.textContent = 'Please select a valid user type.';
+            }
+        });
+    </script>
+
+</body>
+</html>
